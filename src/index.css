@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(202, 176, 176);
+  background-color: rgb(109, 155, 110);
 }
 
 code {
@@ -13,6 +13,16 @@ code {
     monospace;
 }
 
+.header {
+  background-color: lightgrey;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  padding-left: 10px;
+  color: black;
+}
 .memo-board-container {
   max-width: 960px;
   margin-right: auto;
@@ -27,7 +37,7 @@ code {
   grid-template-columns: repeat(auto-fit, 200px);
 }
 .memo {
-  background-color: blanchedalmond;
+  background-color: lightgrey;
   border-radius: 5px;
   padding: 1rem;
   height: 150px;
