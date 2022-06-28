@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(109, 155, 110);
+  background-color: rgb(88, 136, 96);
 }
 
 code {
@@ -35,6 +35,30 @@ code {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, 200px);
+}
+
+.memo.new {
+  background-color: rgb(219, 242, 200);
+}
+
+textarea {
+  border: none;
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+.save:hover {
+  background-color: white;
+  cursor: pointer;
 }
 .memo {
   background-color: lightgrey;

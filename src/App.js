@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import MemoBoard from "./components/MemoBoard";
 import Header from "./components/Header";
+import NewMemo from "./components/NewMemo";
 
 function App() {
   const [memos, newMemo] = useState([
@@ -22,9 +23,11 @@ function App() {
   return (
     <div>
       <Header />
+      <button>Create new memo</button>
       <div className="memo-board-container">
         <MemoBoard memos={memos} />
       </div>
+      <NewMemo />
     </div>
   );
 }
