@@ -1,4 +1,4 @@
-import { RiDeleteBin5Fill } from "react-icons/ri";
+import {} from "react-icons/ri";
 function Memo() {
   return (
     <div className="memo">
