@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(152, 120, 93);
+  background-color: rgb(202, 176, 176);
 }
 
 code {
@@ -13,6 +13,14 @@ code {
     monospace;
 }
 
+.memo-board-container {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .memo-board {
   display: grid;
   grid-gap: 1rem;
@@ -20,7 +28,7 @@ code {
 }
 .memo {
   background-color: blanchedalmond;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 1rem;
   height: 150px;
   width: 150px;

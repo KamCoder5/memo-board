@@ -1,11 +1,16 @@
 import Memo from "./Memo";
-function MemoBoard() {
+function MemoBoard(props) {
   return (
     <div className="memo-board">
-      <Memo />
-      <Memo />
-      <Memo />
-      <Memo />
+      {props.memos.map((memo) => (
+        <Memo
+          key={memo.id}
+          id={memo.id}
+          title={memo.title}
+          body={memo.body}
+          creation_date={memo.creation_date}
+        />
+      ))}
     </div>
   );
 }
