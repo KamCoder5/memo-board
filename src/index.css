@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(152, 120, 93);
 }
 
 code {
@@ -12,9 +13,13 @@ code {
     monospace;
 }
 
+.memo-board {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, 200px);
+}
 .memo {
   background-color: blanchedalmond;
-  margin-bottom: 10px;
   border-radius: 10px;
   padding: 1rem;
   height: 150px;
@@ -39,4 +44,10 @@ code {
 .memo-body {
   display: flex;
   align-items: center;
+}
+
+.pin-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
