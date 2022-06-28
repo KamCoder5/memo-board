@@ -60,6 +60,12 @@ textarea:focus {
   background-color: white;
   cursor: pointer;
 }
+
+.title-input {
+  margin-bottom: 5px;
+  border: none;
+}
+
 .memo {
   background-color: lightgrey;
   border-radius: 5px;
