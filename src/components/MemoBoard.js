@@ -12,7 +12,7 @@ function MemoBoard(props) {
           creation_date={memo.creation_date}
         />
       ))}
-      <NewMemo addNewMemoToBoard={props.addNewMemoToBoard} />
+      <NewMemo handleAddNewMemoToBoard={props.handleAddNewMemoToBoard} />
     </div>
   );
 }

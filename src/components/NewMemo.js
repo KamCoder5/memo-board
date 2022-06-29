@@ -14,7 +14,7 @@ function NewMemo(props) {
   }
 
   function handleSaveClick(event) {
-    console.log(newMemoInput);
+    props.handleAddNewMemoToBoard(newMemoInput);
     event.preventDefault();
   }
 

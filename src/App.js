@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import NewMemo from "./components/NewMemo";
 
 function App() {
-  const [memos, newMemo] = useState([
+  const [memos, setNewMemo] = useState([
     {
       id: uuidv4(),
       title: "This is my first note",
@@ -21,19 +21,26 @@ function App() {
     },
   ]);
 
-  function addNewMemoToBoard(newMemoData) {
-    // const creation_date = new Date();
-    // const newMemo = {
-    //   title: newMemoData.memoTitle,
-    // };
-    console.log(newMemoData);
+  function handleAddNewMemoToBoard(newMemoData) {
+    const creation_date = new Date();
+    const newMemo = {
+      id: uuidv4(),
+      tile: newMemoData.memoTitle,
+      body: newMemoData.memoBody,
+      creation_date: creation_date.toLocaleDateString(),
+    };
+    const newMemos = [...memos, newMemo];
+    setNewMemo(newMemos);
   }
   return (
     <div>
       <Header />
       <button>Create new memo</button>
       <div className="memo-board-container">
-        <MemoBoard memos={memos} addNewMemoToBoard={addNewMemoToBoard} />
+        <MemoBoard
+          memos={memos}
+          handleAddNewMemoToBoard={handleAddNewMemoToBoard}
+        />
       </div>
     </div>
   );
