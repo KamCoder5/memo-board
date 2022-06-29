@@ -1,4 +1,5 @@
 import Memo from "./Memo";
+import NewMemo from "./NewMemo";
 function MemoBoard(props) {
   return (
     <div className="memo-board">
@@ -11,6 +12,7 @@ function MemoBoard(props) {
           creation_date={memo.creation_date}
         />
       ))}
+      <NewMemo addNewMemoToBoard={props.addNewMemoToBoard} />
     </div>
   );
 }

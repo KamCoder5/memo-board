@@ -21,14 +21,20 @@ function App() {
     },
   ]);
 
+  function addNewMemoToBoard(newMemoData) {
+    // const creation_date = new Date();
+    // const newMemo = {
+    //   title: newMemoData.memoTitle,
+    // };
+    console.log(newMemoData);
+  }
   return (
     <div>
       <Header />
       <button>Create new memo</button>
       <div className="memo-board-container">
-        <MemoBoard memos={memos} />
+        <MemoBoard memos={memos} addNewMemoToBoard={addNewMemoToBoard} />
       </div>
-      <NewMemo />
     </div>
   );
 }
