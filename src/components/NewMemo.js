@@ -4,18 +4,24 @@ function NewMemo(props) {
     memoTitle: "",
     memoBody: "",
   });
+  const characterLimit = 140;
 
   function handleNewMemoInput(event) {
     const input = event.target.value;
-    setNewMemoInput({
-      ...newMemoInput,
-      [event.target.name]: input,
-    });
+    if (characterLimit - input.length >= 0) {
+      setNewMemoInput({
+        ...newMemoInput,
+        [event.target.name]: input,
+      });
+    }
   }
 
   function handleSaveClick(event) {
-    props.handleAddNewMemoToBoard(newMemoInput);
-    event.preventDefault();
+    if (newMemoInput.trim().length > 0) {
+      props.handleAddNewMemoToBoard(newMemoInput);
+      setNewMemoInput("");
+      event.preventDefault();
+    }
   }
 
   return (
@@ -37,7 +43,7 @@ function NewMemo(props) {
         onChange={handleNewMemoInput}
       ></textarea>
       <div className="memo-footer">
-        <h6>140 characters remaining</h6>
+        <h6>{characterLimit - newMemoInput.memoBody.length}</h6>
         <button className="save" onClick={handleSaveClick}>
           save
         </button>
