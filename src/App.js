@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import MemoBoard from "./components/MemoBoard";
 import Header from "./components/Header";
-import NewMemo from "./components/NewMemo";
 
 function App() {
   const [memos, setNewMemo] = useState([
@@ -21,17 +20,19 @@ function App() {
     },
   ]);
 
-  function handleAddNewMemoToBoard(newMemoData) {
+  function handleAddNewMemoToBoard(newMemoInput) {
+    console.log("test");
     const creation_date = new Date();
     const newMemo = {
       id: uuidv4(),
-      tile: newMemoData.memoTitle,
-      body: newMemoData.memoBody,
+      tile: newMemoInput.memoTitle,
+      body: newMemoInput.memoBody,
       creation_date: creation_date.toLocaleDateString(),
     };
     const newMemos = [...memos, newMemo];
     setNewMemo(newMemos);
   }
+
   return (
     <div>
       <Header />

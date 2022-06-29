@@ -4,28 +4,32 @@ function NewMemo(props) {
     memoTitle: "",
     memoBody: "",
   });
+  const [inputCharacterCount, setInputCharacterCount] = useState(0);
   const characterLimit = 140;
 
   function handleNewMemoInput(event) {
     const input = event.target.value;
+    setInputCharacterCount(input.length);
+
     if (characterLimit - input.length >= 0) {
       setNewMemoInput({
         ...newMemoInput,
         [event.target.name]: input,
       });
+    } else {
     }
   }
 
   function handleSaveClick(event) {
-    if (newMemoInput.trim().length > 0) {
+    if (inputCharacterCount > 0) {
       props.handleAddNewMemoToBoard(newMemoInput);
-      setNewMemoInput("");
       event.preventDefault();
+      setNewMemoInput("");
     }
   }
 
   return (
-    <form className="memo new ">
+    <form className="memo new" autoComplete="off">
       <input
         className="title-input"
         placeholder="Enter your title..."
@@ -43,7 +47,7 @@ function NewMemo(props) {
         onChange={handleNewMemoInput}
       ></textarea>
       <div className="memo-footer">
-        <h6>{characterLimit - newMemoInput.memoBody.length}</h6>
+        <h6>{characterLimit - inputCharacterCount}</h6>
         <button className="save" onClick={handleSaveClick}>
           save
         </button>
