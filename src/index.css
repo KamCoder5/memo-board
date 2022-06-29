@@ -49,8 +49,14 @@ textarea {
 
 textarea:focus {
   outline: none;
+  border: 1px solid grey;
 }
 
+input:focus {
+  outline: none;
+  margin-bottom: 5px;
+  border: 1px solid grey;
+}
 .save {
   border: none;
   border-radius: 10px;
@@ -60,11 +66,6 @@ textarea:focus {
 .save:hover {
   background-color: white;
   cursor: pointer;
-}
-
-.title-input {
-  margin-bottom: 5px;
-  border: none;
 }
 
 .memo {
@@ -104,8 +105,5 @@ textarea:focus {
 
 .delete-icon {
   cursor: pointer;
-}
-
-textarea:focus {
-  border: 1px solid grey;
+  height: 1rem;
 }

@@ -22,8 +22,11 @@ function NewMemo(props) {
   function handleSaveClick(event) {
     if (inputCharacterCount > 0) {
       props.handleAddNewMemoToBoard(newMemoInput);
-      setNewMemoInput("");
       event.preventDefault();
+      setNewMemoInput({
+        memoTitle: "",
+        memoBody: "",
+      });
     }
   }
 
