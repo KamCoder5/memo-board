@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import MemoBoard from "./components/MemoBoard";
@@ -22,10 +22,11 @@ function App() {
 
   function handleAddNewMemoToBoard(newMemoInput) {
     console.log("test");
+    console.log(newMemoInput);
     const creation_date = new Date();
     const newMemo = {
       id: uuidv4(),
-      tile: newMemoInput.memoTitle,
+      title: newMemoInput.memoTitle,
       body: newMemoInput.memoBody,
       creation_date: creation_date.toLocaleDateString(),
     };
