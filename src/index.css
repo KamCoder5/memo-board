@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(88, 136, 96);
+  background-color: whitesmoke;
 }
 
 code {
@@ -67,7 +67,7 @@ textarea:focus {
 }
 
 .memo {
-  background-color: lightgrey;
+  background-color: rgb(236, 238, 149);
   border-radius: 5px;
   padding: 1rem;
   height: 150px;
@@ -99,4 +99,8 @@ textarea:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.delete-icon {
+  cursor: pointer;
 }
