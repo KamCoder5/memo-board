@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import MemoBoard from "./components/MemoBoard";
@@ -36,10 +36,24 @@ function App() {
     const updatedMemoList = memos.filter((memo) => memo.id !== id);
     setNewMemo(updatedMemoList);
   }
+
+  //local storage
+
+  // useEffect(() => {
+  //   const savedMemos = JSON.parse(localStorage.getItem("react-memo-app-data"));
+  //   if (savedMemos) {
+  //     setNewMemo(savedMemos);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem("app-name", "react-memo-app-data");
+  //   JSON.stringify(memos);
+  // }, [memos]);
+
   return (
     <div>
       <Header />
-      <button>Create new memo</button>
       <div className="memo-board-container">
         <MemoBoard
           memos={memos}

@@ -22,38 +22,40 @@ function NewMemo(props) {
   function handleSaveClick(event) {
     if (inputCharacterCount > 0) {
       props.handleAddNewMemoToBoard(newMemoInput);
-      event.preventDefault();
       setNewMemoInput("");
+      event.preventDefault();
     }
   }
 
   return (
-    <form className="memo new" autoComplete="off">
-      <input
-        className="title-input"
-        placeholder="Enter your title..."
-        type="text"
-        name="memoTitle"
-        value={newMemoInput.memoTitle}
-        onChange={handleNewMemoInput}
-      ></input>
-      <textarea
-        rows="5"
-        cols="10"
-        placeholder="Type to add your great idea..."
-        name="memoBody"
-        value={newMemoInput.memoBody}
-        onChange={handleNewMemoInput}
-      ></textarea>
-      <div className="memo-footer">
-        <small>
-          {characterLimit - inputCharacterCount} characters remaining
-        </small>
-        <button className="save" onClick={handleSaveClick}>
-          save
-        </button>
-      </div>
-    </form>
+    <div>
+      <form className="memo new" autoComplete="off">
+        <input
+          className="title-input"
+          placeholder="Enter your title..."
+          type="text"
+          name="memoTitle"
+          value={newMemoInput.memoTitle}
+          onChange={handleNewMemoInput}
+        ></input>
+        <textarea
+          rows="5"
+          cols="10"
+          placeholder="Type to add your great idea..."
+          name="memoBody"
+          value={newMemoInput.memoBody}
+          onChange={handleNewMemoInput}
+        ></textarea>
+        <div className="memo-footer">
+          <small>
+            {characterLimit - inputCharacterCount} characters remaining
+          </small>
+          <button className="save" onClick={handleSaveClick}>
+            save
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 
