@@ -11,12 +11,11 @@ function NewMemo(props) {
     const input = event.target.value;
     setInputCharacterCount(input.length);
 
-    if (characterLimit - input.length >= 0) {
+    if (characterLimit - input.length > 0) {
       setNewMemoInput({
         ...newMemoInput,
         [event.target.name]: input,
       });
-    } else {
     }
   }
 
@@ -47,7 +46,9 @@ function NewMemo(props) {
         onChange={handleNewMemoInput}
       ></textarea>
       <div className="memo-footer">
-        <h6>{characterLimit - inputCharacterCount}</h6>
+        <small>
+          {characterLimit - inputCharacterCount} characters remaining
+        </small>
         <button className="save" onClick={handleSaveClick}>
           save
         </button>

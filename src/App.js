@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import MemoBoard from "./components/MemoBoard";
@@ -21,8 +21,6 @@ function App() {
   ]);
 
   function handleAddNewMemoToBoard(newMemoInput) {
-    console.log("test");
-    console.log(newMemoInput);
     const creation_date = new Date();
     const newMemo = {
       id: uuidv4(),
@@ -34,6 +32,10 @@ function App() {
     setNewMemo(newMemos);
   }
 
+  function handleDeleteNote(id) {
+    const updatedMemoList = memos.filter((memo) => memo.id !== id);
+    setNewMemo(updatedMemoList);
+  }
   return (
     <div>
       <Header />
@@ -42,6 +44,7 @@ function App() {
         <MemoBoard
           memos={memos}
           handleAddNewMemoToBoard={handleAddNewMemoToBoard}
+          handleDeleteNote={handleDeleteNote}
         />
       </div>
     </div>

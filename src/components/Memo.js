@@ -6,7 +6,13 @@ function Memo(props) {
       <div className="memo-body">{props.body}</div>
       <div className="memo-footer">
         <small>{props.creation_date}</small>
-        <RiDeleteBin5Fill className="delete-icon" size="1.3em" />
+        <RiDeleteBin5Fill
+          onClick={() => {
+            props.handleDeleteNote(props.id);
+          }}
+          className="delete-icon"
+          size="1.3em"
+        />
       </div>
     </div>
   );

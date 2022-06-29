@@ -10,6 +10,7 @@ function MemoBoard(props) {
           title={memo.title}
           body={memo.body}
           creation_date={memo.creation_date}
+          handleDeleteNote={props.handleDeleteNote}
         />
       ))}
       <NewMemo handleAddNewMemoToBoard={props.handleAddNewMemoToBoard} />
