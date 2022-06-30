@@ -3,22 +3,17 @@ import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import MemoBoard from "./components/MemoBoard";
 import Header from "./components/Header";
+import SortBy from "./components/SortBy";
 
 function App() {
-  const [memos, setNewMemo] = useState([
-    {
-      id: uuidv4(),
-      title: "This is my first note",
-      body: "How exciting!",
-      creation_date: "27/06/22",
-    },
-    {
-      id: uuidv4(),
-      title: "This is my second note",
-      body: "Still  exciting!",
-      creation_date: "27/06/22",
-    },
-  ]);
+  const [memos, setMemos] = useState(() => {
+    const storedMemoData = window.localStorage.getItem("stored-memo-data");
+    return storedMemoData !== null ? JSON.parse(storedMemoData) : [];
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem("stored-memo-data", JSON.stringify(memos));
+  }, [memos]);
 
   function handleAddNewMemoToBoard(newMemoInput) {
     const creation_date = new Date();
@@ -29,31 +24,23 @@ function App() {
       creation_date: creation_date.toLocaleDateString(),
     };
     const newMemos = [...memos, newMemo];
-    setNewMemo(newMemos);
+    setMemos(newMemos);
   }
 
   function handleDeleteNote(id) {
     const updatedMemoList = memos.filter((memo) => memo.id !== id);
-    setNewMemo(updatedMemoList);
+    setMemos(updatedMemoList);
   }
 
-  //local storage
-
-  // useEffect(() => {
-  //   const savedMemos = JSON.parse(localStorage.getItem("react-memo-app-data"));
-  //   if (savedMemos) {
-  //     setNewMemo(savedMemos);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("app-name", "react-memo-app-data");
-  //   JSON.stringify(memos);
-  // }, [memos]);
+  // function handleEditNote(id) {
+  //   const memoToEdit = memos.filter((memo) => memo.id === id);
+  //   console.log(memoToEdit[0].body);
+  // }
 
   return (
     <div>
       <Header />
+
       <div className="memo-board-container">
         <MemoBoard
           memos={memos}
